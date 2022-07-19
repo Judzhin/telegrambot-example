@@ -10,18 +10,18 @@ use TelegramBot\Api\InvalidArgumentException;
 use TelegramBot\Api\Types\Update;
 
 /**
- * Class HelloWorldCommand
+ * Class HelpCommand
  *
  * @package App\Telegram\Command
  */
-class HelloWorldCommand extends AbstractCommand implements PublicCommandInterface
+class HelpCommand extends AbstractCommand implements PublicCommandInterface
 {
     /**
      * @return string
      */
     public function getName(): string
     {
-        return '/helloworld';
+        return '/help';
     }
 
     /**
@@ -29,7 +29,7 @@ class HelloWorldCommand extends AbstractCommand implements PublicCommandInterfac
      */
     public function getDescription(): string
     {
-        return 'Example Hello World Command';
+        return 'Example Help World Command';
     }
 
     /**
@@ -41,10 +41,7 @@ class HelloWorldCommand extends AbstractCommand implements PublicCommandInterfac
     public function execute(BotApi $api, Update $update): void
     {
         preg_match(self::REGEXP, $update->getMessage()->getText(), $matches);
-        $who = !empty($matches[3]) ? $matches[3] : 'World';
-
-        $text = sprintf('Hello *%s*', $who);
-        $api->sendMessage($update->getMessage()->getChat()->getId(), $text, 'markdown');
-
+        // $text = sprintf('Hello *%s*', $who);
+        $api->sendMessage($update->getMessage()->getChat()->getId(), 'Help information', 'markdown');
     }
 }

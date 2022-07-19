@@ -29,3 +29,10 @@ services:
     class: App\Telegram\Command\HelloWorldCommand
     tags:
       - { name: boshurik_telegram_bot.command }
+
+  app.telegram.command.help:
+    class: App\Telegram\Command\HelpCommand
+    arguments:
+      - '@BoShurik\TelegramBotBundle\Telegram\Command\CommandRegistry'
+    tags:
+      - { name: boshurik_telegram_bot.command }
