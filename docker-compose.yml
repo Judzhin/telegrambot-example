@@ -37,10 +37,10 @@ services:
       target: ${APP_ENV:-dev}
       dockerfile: .docker/mariadb/Dockerfile
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-cm.dev}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-telegrambot-example.dev}
       MYSQL_USER: ${MYSQL_USER:-root}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-EtExf4QyJ6Gca7a6}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-EtExf4QyJ6Gca7a6}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
     ports:
     - ${MYSQL_PORT:-3306}:3306
     volumes:
